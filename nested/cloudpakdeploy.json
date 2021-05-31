@@ -151,7 +151,19 @@
 			"metadata": {
 				"description": "Deploy IBM DataPower runtime"
 			}
-		}
+		},
+		"storageAccountName": {
+            "type": "string",
+            "metadata": {
+                "description": "Storage Account Name"
+            }
+        },
+		"cloudPakVersion": {
+            "type": "string",
+            "metadata": {
+                "description": "cloud pak version"
+            }
+        }
 		
 	},
 	"variables": {
@@ -165,7 +177,7 @@
 			"tags": {
 				"displayName": "DeployCloudPak",
 				"app": "[parameters('redHatTags').app]",
-				"version": "[parameters('redHatTags').version]",
+				"version": "[parameters('openshifVersion')]",
 				"platform": "[parameters('redHatTags').platform]"
 			},
 			"properties": {
@@ -179,7 +191,7 @@
 					]
 				},
 				"protectedSettings": {
-					"commandToExecute": "[concat('bash ', parameters('cloudPakDeploymentScriptFileName'), ' \"', parameters('adminUsername'), '\"', ' \"', parameters('ocpassword'), '\"', ' \"', parameters('projectName'), '\"', ' \"', parameters('storageOption'), '\"', ' \"', parameters('assembly'), '\"', ' \"', parameters('clusterName'), '\"', ' \"', parameters('domainName'), '\"', ' \"', parameters('ocuser'), '\"', ' \"', parameters('apiKey'), '\"', ' \"', parameters('platformNavigatorReplicas'), '\"', ' \"', parameters('capabilityAPIConnect'), '\"', ' \"', parameters('capabilityAPPConnectDashboard'), '\"', ' \"', parameters('capabilityAPPConenctDesigner'), '\"', ' \"', parameters('capabilityAssetRepository'), '\"', ' \"', parameters('capabilityOperationsDashboard'), '\"', ' \"', parameters('runtimeMQ'), '\"', ' \"', parameters('runtimeKafka'), '\"', ' \"', parameters('runtimeAspera'), '\"', ' \"', parameters('runtimeDataPower'), '\"', ' \"', parameters('productInstallationScriptPath'), '\"')]"
+					"commandToExecute": "[concat('bash ', parameters('cloudPakDeploymentScriptFileName'), ' \"', parameters('adminUsername'), '\"', ' \"', parameters('ocpassword'), '\"', ' \"', parameters('projectName'), '\"', ' \"', parameters('storageOption'), '\"', ' \"', parameters('assembly'), '\"', ' \"', parameters('clusterName'), '\"', ' \"', parameters('domainName'), '\"', ' \"', parameters('ocuser'), '\"', ' \"', parameters('apiKey'), '\"', ' \"', parameters('platformNavigatorReplicas'), '\"', ' \"', parameters('capabilityAPIConnect'), '\"', ' \"', parameters('capabilityAPPConnectDashboard'), '\"', ' \"', parameters('capabilityAPPConenctDesigner'), '\"', ' \"', parameters('capabilityAssetRepository'), '\"', ' \"', parameters('capabilityOperationsDashboard'), '\"', ' \"', parameters('runtimeMQ'), '\"', ' \"', parameters('runtimeKafka'), '\"', ' \"', parameters('runtimeAspera'), '\"', ' \"', parameters('runtimeDataPower'), '\"', ' \"', parameters('productInstallationScriptPath'), '\"', ' \"', parameters('storageAccountName'), '\"'), parameters('cloudPakVersion'), '\"')]"
 				}
 			}
 		}
